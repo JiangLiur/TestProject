@@ -1,0 +1,132 @@
+{
+  "0101": {
+    "material_position": null,
+    "size_position": null,
+    "confidence": {
+      "material": 0.0,
+      "size": 0.0
+    },
+    "sample_count": 5,
+    "example": "流体用无缝钢管,[801],[401],L245N,DEC-OGP-S-PR-008,BE"
+  },
+  "0102": {
+    "material_position": null,
+    "size_position": null,
+    "confidence": {
+      "material": 0.0,
+      "size": 0.0
+    },
+    "sample_count": 5,
+    "example": "直缝电熔化焊焊接钢管,[801],[401],L360M,DEC-OGP-S-PR-008,BE"
+  },
+  "0108": {
+    "material_position": null,
+    "size_position": null,
+    "confidence": {
+      "material": 0.0,
+      "size": 0.0
+    },
+    "sample_count": 122,
+    "example": "管帽(焊),[801],[403],BE,DEC-OGP-S-NE-005,CA245-PSL2,无缝"
+  },
+  "0109": {
+    "material_position": 6,
+    "size_position": 2,
+    "confidence": {
+      "material": 0.5,
+      "size": 1.0
+    },
+    "sample_count": 52,
+    "example": "对焊支管台,[801],XS,BE,MSS SP-97,16MnD"
+  },
+  "0115": {
+    "material_position": 5,
+    "size_position": null,
+    "confidence": {
+      "material": 0.5,
+      "size": 0.0
+    },
+    "sample_count": 64,
+    "example": "盲法兰,[801],CL150,RF,ASME B16.5,ASTM A105"
+  },
+  "2601": {
+    "material_position": 6,
+    "size_position": null,
+    "confidence": {
+      "material": 1.0,
+      "size": 0.0
+    },
+    "sample_count": 147,
+    "example": "分体式球阀,[801],全通径/固定球,CL150,RF,阀体材料:ASTM A182 F304,阀芯材料:ASTM A182 F304+ENP/FKM AED GLT,手柄,API 6D,API 6D,ASME B16.5"
+  },
+  "2602": {
+    "material_position": 6,
+    "size_position": null,
+    "confidence": {
+      "material": 1.0,
+      "size": 0.0
+    },
+    "sample_count": 63,
+    "example": "节流截止放空阀,[801],螺栓连接阀盖,外螺纹阀杆,CL150,RF,阀体材料:ASTM A216 WCB,阀芯材料:ASTM A182 F6a+STL6/FKM,手轮,DEC-OGP-S-PR-004,ASME B16.10,ASME B16.5"
+  },
+  "2603": {
+    "material_position": 6,
+    "size_position": null,
+    "confidence": {
+      "material": 1.0,
+      "size": 0.0
+    },
+    "sample_count": 52,
+    "example": "平板闸阀,[801],螺栓连接阀盖,外螺纹阀杆,CL150,RF,阀体材料:ASTM A216 WCB,阀芯材料:ASTM A105+STL6/PTFE,手轮,DEC-OGP-S-PR-003,API 6D,ASME B16.5"
+  },
+  "2604": {
+    "material_position": 4,
+    "size_position": null,
+    "confidence": {
+      "material": 1.0,
+      "size": 0.0
+    },
+    "sample_count": 27,
+    "example": "文丘里旋塞阀,[801],CL300,RF,阀体材料:ASTM A216 WCB,阀芯材料:ASTM A216 WCB,蜗轮蜗杆,DEC-OTP-S-PR-002,API 6D,ASME B16.5"
+  },
+  "2605": {
+    "material_position": 4,
+    "size_position": null,
+    "confidence": {
+      "material": 1.0,
+      "size": 0.0
+    },
+    "sample_count": 3,
+    "example": "双偏心蝶阀,[801],CL150,RF,阀体材料:ASTM A216 WCB,阀芯材料:ASTM A216 WCB+HF/RPTFE,齿轮,API 609 Cat B,API 609 CAT B,ASME B16.5."
+  },
+  "2606": {
+    "material_position": 5,
+    "size_position": null,
+    "confidence": {
+      "material": 1.0,
+      "size": 0.0
+    },
+    "sample_count": 63,
+    "example": "旋启式止回阀,[801],螺栓连接阀盖,CL150,RF,阀体材料:ASTM A216 WCB,阀芯材料:ASTM A217 CA15+STL6,DEC-OTP-S-PR-003,API 6D,ASME B16.5"
+  },
+  "2701": {
+    "material_position": null,
+    "size_position": null,
+    "confidence": {
+      "material": 0.0,
+      "size": 0.0
+    },
+    "sample_count": 11,
+    "example": "八角形金属环垫片, ASME B16.20, ASME B16.5, CL 900, 环连接面, 304."
+  },
+  "2702": {
+    "material_position": 4,
+    "size_position": null,
+    "confidence": {
+      "material": 1.0,
+      "size": 0.0
+    },
+    "sample_count": 3,
+    "example": "全螺纹螺柱/2个重型六角形螺母,[801],[BoltLength],ASME B18.31.2/ASME B18.2.2,ASTM A193 Gr.B7/ASTM A194 Gr.2H,热镀锌/浸锌."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "source_grade": "C1L01",
+  "target_grade": "C1L02",
+
+  "pcmcd_file": "files/CatalogDataExtractor_PCMCD.xlsx",
+  "format_rules_file": "format_rules.json",
+  "output_file": "output/PCMCD_modified.xlsx",
+
+  "pcmcd_analysis": {
+    "analyze_rows": 622,
+    "export_format_rules": true
+  },
+
+  "material_replacements": {
+    "ASTM A216 WCB": "ASTM A352 LCB",
+    "ASTM A105": "ASTM A350 LF2",
+    "ASTM A182 F304": "ASTM A182 F316",
+    "ASTM A234 WPB": "ASTM A420 WPL6",
+    "16MnD": "16MnDR"
+  },
+
+  "size_standard_replacements": {
+    "SCH40": "SCH80",
+    "SCH STD": "SCH 80",
+    "XS": "XXS",
+    "CL150": "CL300"
+  },
+
+  "comments": {
+    "说明1": "材料标准替换会根据PCMCD表格式分析结果，按位置进行精确替换",
+    "说明2": "尺寸标准替换同样基于位置规则进行",
+    "说明3": "analyze_rows设置为622表示分析PCMCD表前622行来确定格式规律"
+  }
+}

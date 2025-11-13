@@ -1,0 +1,130 @@
+================================================================================
+Smart3D等级库复制 - 替换操作报告
+================================================================================
+
+配置信息:
+  源等级: C1L01
+  目标等级: C1L02
+  PCMCD文件: files/CatalogDataExtractor_PCMCD.xlsx
+
+材料标准替换规则:
+  ASTM A216 WCB → ASTM A352 LCB
+  ASTM A105 → ASTM A350 LF2
+  ASTM A182 F304 → ASTM A182 F316
+  ASTM A234 WPB → ASTM A420 WPL6
+  16MnD → 16MnDR
+
+尺寸标准替换规则:
+  SCH40 → SCH80
+  SCH STD → SCH 80
+  XS → XXS
+  CL150 → CL300
+
+替换摘要:
+  总替换次数: 435
+  材料替换: 355
+  尺寸替换: 80
+
+详细替换日志:
+--------------------------------------------------------------------------------
+1. [0109] 位置2: XS → XXS (size)
+2. [0109] 位置2: XS → XXS (size)
+3. [0109] 位置2: XS → XXS (size)
+4. [0109] 位置2: XS → XXS (size)
+5. [0109] 位置2: XS → XXS (size)
+6. [0109] 位置2: XS → XXS (size)
+7. [0109] 位置2: XS → XXS (size)
+8. [0109] 位置2: XS → XXS (size)
+9. [0109] 位置2: XS → XXS (size)
+10. [0109] 位置2: XS → XXS (size)
+11. [0109] 位置2: XS → XXS (size)
+12. [0109] 位置2: XS → XXS (size)
+13. [0109] 位置2: XS → XXS (size)
+14. [0109] 位置2: XS → XXS (size)
+15. [0109] 位置2: XS → XXS (size)
+16. [0109] 位置2: XS → XXS (size)
+17. [0109] 位置2: XS → XXS (size)
+18. [0109] 位置2: XS → XXS (size)
+19. [0109] 位置2: XS → XXS (size)
+20. [0109] 位置2: XS → XXS (size)
+21. [0109] 位置2: XS → XXS (size)
+22. [0109] 位置2: XS → XXS (size)
+23. [0109] 位置2: XS → XXS (size)
+24. [0109] 位置2: XS → XXS (size)
+25. [0109] 位置2: XS → XXS (size)
+26. [0109] 位置2: XS → XXS (size)
+27. [0109] 位置2: XS → XXS (size)
+28. [0109] 位置2: XS → XXS (size)
+29. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+30. [0109] 位置2: XS → XXS (size)
+31. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+32. [0109] 位置2: XS → XXS (size)
+33. [0109] 位置6: 16MnD → 16MnDR (material)
+34. [0109] 位置2: XS → XXS (size)
+35. [0109] 位置6: 16MnD → 16MnDR (material)
+36. [0109] 位置2: XS → XXS (size)
+37. [0109] 位置2: XS → XXS (size)
+38. [0109] 位置2: XS → XXS (size)
+39. [0109] 位置2: XS → XXS (size)
+40. [0109] 位置2: XS → XXS (size)
+41. [0109] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+42. [0109] 位置2: XS → XXS (size)
+43. [0109] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+44. [0109] 位置2: XS → XXS (size)
+45. [0109] 位置2: XS → XXS (size)
+46. [0109] 位置2: XS → XXS (size)
+47. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+48. [0109] 位置2: XS → XXS (size)
+49. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+50. [0109] 位置2: XS → XXS (size)
+51. [0109] 位置6: 16MnD → 16MnDR (material)
+52. [0109] 位置2: XS → XXS (size)
+53. [0109] 位置6: 16MnD → 16MnDR (material)
+54. [0109] 位置2: XS → XXS (size)
+55. [0109] 位置2: XS → XXS (size)
+56. [0109] 位置2: XS → XXS (size)
+57. [0109] 位置2: XS → XXS (size)
+58. [0109] 位置2: XS → XXS (size)
+59. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+60. [0109] 位置2: XS → XXS (size)
+61. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+62. [0109] 位置2: XS → XXS (size)
+63. [0109] 位置6: 16MnD → 16MnDR (material)
+64. [0109] 位置2: XS → XXS (size)
+65. [0109] 位置6: 16MnD → 16MnDR (material)
+66. [0109] 位置2: XS → XXS (size)
+67. [0109] 位置2: XS → XXS (size)
+68. [0109] 位置2: XS → XXS (size)
+69. [0109] 位置2: XS → XXS (size)
+70. [0109] 位置2: XS → XXS (size)
+71. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+72. [0109] 位置2: XS → XXS (size)
+73. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+74. [0109] 位置2: XS → XXS (size)
+75. [0109] 位置6: 16MnD → 16MnDR (material)
+76. [0109] 位置2: XS → XXS (size)
+77. [0109] 位置6: 16MnD → 16MnDR (material)
+78. [0109] 位置2: XS → XXS (size)
+79. [0109] 位置2: XS → XXS (size)
+80. [0109] 位置2: XS → XXS (size)
+81. [0109] 位置2: XS → XXS (size)
+82. [0109] 位置2: XS → XXS (size)
+83. [0109] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+84. [0109] 位置2: XS → XXS (size)
+85. [0109] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+86. [0109] 位置2: XS → XXS (size)
+87. [0109] 位置2: XS → XXS (size)
+88. [0109] 位置2: XS → XXS (size)
+89. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+90. [0109] 位置2: XS → XXS (size)
+91. [0109] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+92. [0109] 位置2: XS → XXS (size)
+93. [0109] 位置6: 16MnD → 16MnDR (material)
+94. [0109] 位置2: XS → XXS (size)
+95. [0109] 位置6: 16MnD → 16MnDR (material)
+96. [0109] 位置2: XS → XXS (size)
+97. [0109] 位置2: XS → XXS (size)
+98. [0109] 位置2: XS → XXS (size)
+99. [0109] 位置2: XS → XXS (size)
+100. [0109] 位置2: XS → XXS (size)
+... (还有 335 条记录)
