@@ -20,9 +20,152 @@ Smart3D等级库复制 - 替换操作报告
   CL150 → CL300
 
 替换摘要:
-  总替换次数: 0
-  材料替换: 0
-  尺寸替换: 0
+  总替换次数: 2232
+  材料替换: 467
+  尺寸替换: 1765
+
+按管件类型统计:
+  UNKNOWN: 1397 次
+  Ball Valve: 190 次
+  Gate Valve: 104 次
+  Globe Valve: 82 次
+  Flange: 68 次
+  Blowdown Valve Sleeve: 62 次
+  Blind Flange: 39 次
+  Flanged Olet: 38 次
+  Axial Check Valve: 34 次
+  Swing Check Valve: 24 次
+  Weldolet: 18 次
+  Plug Valve: 18 次
+  Reducing Filler Flange: 17 次
+  Butterfly Valve: 16 次
+  Check Valve: 15 次
+  Paddle Blind: 14 次
+  Paddle Spacer: 14 次
+  Reducing Flange: 12 次
+  Spectacle Blind: 12 次
+  Y Globe Valve: 10 次
+  Wafer Check Valve: 6 次
+  Orifice Flange: 5 次
+  Instrument Tee: 4 次
+  Reducing Instrument Tee: 4 次
+  Instrument Root Valve: 4 次
+  Concentric Size Change: 2 次
+  Eccentric Size Change: 2 次
+  45 Degree Direction Change: 2 次
+  90 Degree Direction Change: 2 次
+  Tee: 2 次
+  Reducing Tee: 2 次
+  Lateral: 2 次
+  Vent-Drain Valve: 2 次
+  Diaphragm Valve: 2 次
+  Horizontal Lift Check Valve: 2 次
+  FBLD: 1 次
+  Spacer: 1 次
+  Distance Piece: 1 次
+  Piping: 1 次
+  SCHK: 1 次
 
 详细替换日志（前100条）:
 --------------------------------------------------------------------------------
+1. [UNKNOWN] 位置2: XS → XXS (size)
+2. [UNKNOWN] 位置2: XS → XXS (size)
+3. [UNKNOWN] 位置2: XS → XXS (size)
+4. [UNKNOWN] 位置2: XS → XXS (size)
+5. [UNKNOWN] 位置2: XS → XXS (size)
+6. [UNKNOWN] 位置2: XS → XXS (size)
+7. [UNKNOWN] 位置2: XS → XXS (size)
+8. [UNKNOWN] 位置2: XS → XXS (size)
+9. [UNKNOWN] 位置2: XS → XXS (size)
+10. [UNKNOWN] 位置2: XS → XXS (size)
+11. [UNKNOWN] 位置2: XS → XXS (size)
+12. [UNKNOWN] 位置2: XS → XXS (size)
+13. [UNKNOWN] 位置2: XS → XXS (size)
+14. [UNKNOWN] 位置2: XS → XXS (size)
+15. [Weldolet] 位置5: ASTM A105 → ASTM A350 LF2 (material)
+16. [Weldolet] 位置2: XS → XXS (size)
+17. [Weldolet] 位置5: ASTM A105 → ASTM A350 LF2 (material)
+18. [Weldolet] 位置2: XS → XXS (size)
+19. [Weldolet] 位置5: 16MnD → 16MnDR (material)
+20. [Weldolet] 位置2: XS → XXS (size)
+21. [Weldolet] 位置5: 16MnD → 16MnDR (material)
+22. [Weldolet] 位置2: XS → XXS (size)
+23. [Weldolet] 位置2: XS → XXS (size)
+24. [Weldolet] 位置2: XS → XXS (size)
+25. [Weldolet] 位置2: XS → XXS (size)
+26. [Weldolet] 位置2: XS → XXS (size)
+27. [Weldolet] 位置2: XS → XXS (size)
+28. [Weldolet] 位置2: XS → XXS (size)
+29. [UNKNOWN] 位置2: XS → XXS (size)
+30. [UNKNOWN] 位置2: XS → XXS (size)
+31. [Weldolet] 位置2: XS → XXS (size)
+32. [Weldolet] 位置2: XS → XXS (size)
+33. [Weldolet] 位置5: ASTM A105 → ASTM A350 LF2 (material)
+34. [Weldolet] 位置5: ASTM A105 → ASTM A350 LF2 (material)
+35. [Flanged Olet] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+36. [Flanged Olet] 位置2: XS → XXS (size)
+37. [Flanged Olet] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+38. [Flanged Olet] 位置2: XS → XXS (size)
+39. [Flanged Olet] 位置6: 16MnD → 16MnDR (material)
+40. [Flanged Olet] 位置2: XS → XXS (size)
+41. [Flanged Olet] 位置6: 16MnD → 16MnDR (material)
+42. [Flanged Olet] 位置2: XS → XXS (size)
+43. [Flanged Olet] 位置2: XS → XXS (size)
+44. [Flanged Olet] 位置2: XS → XXS (size)
+45. [Flanged Olet] 位置2: XS → XXS (size)
+46. [Flanged Olet] 位置2: XS → XXS (size)
+47. [UNKNOWN] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+48. [UNKNOWN] 位置2: XS → XXS (size)
+49. [UNKNOWN] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+50. [UNKNOWN] 位置2: XS → XXS (size)
+51. [Flanged Olet] 位置2: XS → XXS (size)
+52. [Flanged Olet] 位置2: XS → XXS (size)
+53. [Flanged Olet] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+54. [Flanged Olet] 位置2: XS → XXS (size)
+55. [Flanged Olet] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+56. [Flanged Olet] 位置2: XS → XXS (size)
+57. [UNKNOWN] 位置6: 16MnD → 16MnDR (material)
+58. [UNKNOWN] 位置2: XS → XXS (size)
+59. [UNKNOWN] 位置6: 16MnD → 16MnDR (material)
+60. [UNKNOWN] 位置2: XS → XXS (size)
+61. [Flanged Olet] 位置2: XS → XXS (size)
+62. [Flanged Olet] 位置2: XS → XXS (size)
+63. [Flanged Olet] 位置2: XS → XXS (size)
+64. [Flanged Olet] 位置2: XS → XXS (size)
+65. [Flanged Olet] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+66. [Flanged Olet] 位置2: XS → XXS (size)
+67. [Flanged Olet] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+68. [Flanged Olet] 位置2: XS → XXS (size)
+69. [UNKNOWN] 位置6: 16MnD → 16MnDR (material)
+70. [UNKNOWN] 位置2: XS → XXS (size)
+71. [UNKNOWN] 位置6: 16MnD → 16MnDR (material)
+72. [UNKNOWN] 位置2: XS → XXS (size)
+73. [Flanged Olet] 位置2: XS → XXS (size)
+74. [Flanged Olet] 位置2: XS → XXS (size)
+75. [Flanged Olet] 位置2: XS → XXS (size)
+76. [Flanged Olet] 位置2: XS → XXS (size)
+77. [UNKNOWN] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+78. [UNKNOWN] 位置2: XS → XXS (size)
+79. [UNKNOWN] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+80. [UNKNOWN] 位置2: XS → XXS (size)
+81. [UNKNOWN] 位置6: 16MnD → 16MnDR (material)
+82. [UNKNOWN] 位置2: XS → XXS (size)
+83. [UNKNOWN] 位置6: 16MnD → 16MnDR (material)
+84. [UNKNOWN] 位置2: XS → XXS (size)
+85. [UNKNOWN] 位置2: XS → XXS (size)
+86. [UNKNOWN] 位置2: XS → XXS (size)
+87. [UNKNOWN] 位置2: XS → XXS (size)
+88. [UNKNOWN] 位置2: XS → XXS (size)
+89. [UNKNOWN] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+90. [UNKNOWN] 位置2: XS → XXS (size)
+91. [UNKNOWN] 位置6: ASTM A182 F304 → ASTM A182 F316 (material)
+92. [UNKNOWN] 位置2: XS → XXS (size)
+93. [Flanged Olet] 位置2: XS → XXS (size)
+94. [Flanged Olet] 位置2: XS → XXS (size)
+95. [UNKNOWN] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+96. [UNKNOWN] 位置2: XS → XXS (size)
+97. [UNKNOWN] 位置6: ASTM A105 → ASTM A350 LF2 (material)
+98. [UNKNOWN] 位置2: XS → XXS (size)
+99. [UNKNOWN] 位置6: 16MnD → 16MnDR (material)
+100. [UNKNOWN] 位置2: XS → XXS (size)
+... (还有 2132 条记录)
