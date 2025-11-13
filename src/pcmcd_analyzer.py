@@ -38,16 +38,26 @@ class PCMCDAnalyzer:
         """加载PCMCD表数据"""
         logging.info(f"加载Excel文件: {self.excel_path}")
 
-        # 读取Excel，表头在第4行（索引3）
-        df = pd.read_excel(
-            self.excel_path,
-            sheet_name=self.sheet_name,
-            header=3,  # 第4行是表头
-            skiprows=[4]  # 跳过"Start"行
-        )
+        try:
+            # 读取Excel，表头在第4行（索引3）
+            df = pd.read_excel(
+                self.excel_path,
+                sheet_name=self.sheet_name,
+                header=3,  # 第4行是表头
+                skiprows=[4]  # 跳过"Start"行
+            )
+        except FileNotFoundError:
+            logging.error(f"文件不存在: {self.excel_path}")
+            raise
+        except ValueError as e:
+            logging.error(f"工作表 '{self.sheet_name}' 不存在: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"读取Excel文件失败: {e}")
+            raise
 
         # 删除导航列
-        if str(df.columns[0]).startswith('!'):
+        if len(df.columns) > 0 and str(df.columns[0]).startswith('!'):
             df = df.iloc[:, 1:]
 
         logging.info(f"成功加载 {len(df)} 行数据")

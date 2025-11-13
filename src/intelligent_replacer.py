@@ -20,15 +20,20 @@ logging.basicConfig(
 class IntelligentReplacer:
     """基于位置规则的智能替换器"""
 
-    def __init__(self, format_rules_path: str):
+    def __init__(self, format_rules_path: str, commodity_mapping: Optional[Dict[str, str]] = None):
         """
         初始化替换器
 
         Args:
             format_rules_path: 格式规则JSON文件路径
+            commodity_mapping: 商品编码到SHORTCODE的映射字典 (可选)
         """
         self.format_rules = self.load_format_rules(format_rules_path)
+        self.commodity_mapping = commodity_mapping or {}
         self.replacement_log = []
+
+        if self.commodity_mapping:
+            logging.info(f"已加载商品编码映射: {len(self.commodity_mapping)} 个映射关系")
 
     def load_format_rules(self, file_path: str) -> Dict:
         """加载格式规则"""
@@ -67,8 +72,8 @@ class IntelligentReplacer:
 
         # 获取该管件类型的位置规则
         if shortcode not in self.format_rules:
-            logging.debug(f"未找到{shortcode}的格式规则，使用模糊替换")
-            return self.fuzzy_replace(description, material_mapping, size_mapping)
+            logging.warning(f"未找到'{shortcode}'的格式规则，使用模糊替换")
+            return self.fuzzy_replace(description, shortcode, material_mapping, size_mapping)
 
         rule = self.format_rules[shortcode]
 
@@ -113,11 +118,12 @@ class IntelligentReplacer:
             return ', '.join(parts)
         else:
             # 如果按位置没有找到，尝试模糊替换
-            return self.fuzzy_replace(description, material_mapping, size_mapping)
+            return self.fuzzy_replace(description, shortcode, material_mapping, size_mapping)
 
     def fuzzy_replace(
         self,
         description: str,
+        shortcode: str,
         material_mapping: Dict[str, str],
         size_mapping: Dict[str, str]
     ) -> str:
@@ -127,6 +133,7 @@ class IntelligentReplacer:
 
         Args:
             description: 原始描述文本
+            shortcode: 管件类型代码（用于日志）
             material_mapping: 材料标准映射字典
             size_mapping: 尺寸标准映射字典
 
@@ -134,17 +141,36 @@ class IntelligentReplacer:
             替换后的描述文本
         """
         result = description
+        replaced = False
 
         # 材料标准替换（带边界检查）
         for old_mat, new_mat in material_mapping.items():
             # 使用正则确保完整匹配
             pattern = re.escape(old_mat)
-            result = re.sub(pattern, new_mat, result)
+            if re.search(pattern, result):
+                result = re.sub(pattern, new_mat, result)
+                self.replacement_log.append({
+                    'type': 'material',
+                    'shortcode': shortcode,
+                    'position': 'fuzzy',
+                    'old': old_mat,
+                    'new': new_mat
+                })
+                replaced = True
 
         # 尺寸标准替换
         for old_size, new_size in size_mapping.items():
             pattern = re.escape(old_size)
-            result = re.sub(pattern, new_size, result)
+            if re.search(pattern, result):
+                result = re.sub(pattern, new_size, result)
+                self.replacement_log.append({
+                    'type': 'size',
+                    'shortcode': shortcode,
+                    'position': 'fuzzy',
+                    'old': old_size,
+                    'new': new_size
+                })
+                replaced = True
 
         return result
 
@@ -183,10 +209,35 @@ class IntelligentReplacer:
         # 复制DataFrame避免修改原始数据
         result_df = pcmcd_df.copy()
 
+        # 统计SHORTCODE匹配情况
+        shortcode_stats = {'found': 0, 'unknown': 0}
+
         for idx, row in result_df.iterrows():
-            # 获取管件类型代码（使用商品编码前4位）
+            # 获取商品编码
             commodity_code = row.get(commodity_code_col, '')
-            shortcode = str(commodity_code)[:4] if pd.notna(commodity_code) else 'UNKNOWN'
+
+            # 使用commodity_mapping获取真实的SHORTCODE名称（如"Ball Valve"）
+            if self.commodity_mapping and pd.notna(commodity_code):
+                commodity_code_str = str(commodity_code)
+                shortcode = self.commodity_mapping.get(commodity_code_str, None)
+
+                # 如果完整编码找不到，尝试前缀匹配
+                if not shortcode:
+                    for length in [24, 20, 16, 12, 8, 4]:
+                        prefix = commodity_code_str[:length]
+                        if prefix in self.commodity_mapping:
+                            shortcode = self.commodity_mapping[prefix]
+                            break
+
+                if shortcode:
+                    shortcode_stats['found'] += 1
+                else:
+                    shortcode = 'UNKNOWN'
+                    shortcode_stats['unknown'] += 1
+            else:
+                # 没有映射时，使用商品编码前4位作为fallback
+                shortcode = str(commodity_code)[:4] if pd.notna(commodity_code) else 'UNKNOWN'
+                shortcode_stats['unknown'] += 1
 
             # 替换长描述
             if long_desc_col in result_df.columns and pd.notna(row[long_desc_col]):
@@ -215,6 +266,13 @@ class IntelligentReplacer:
 
         logging.info(f"替换完成: 修改了 {modified_count} 条记录")
         logging.info(f"详细替换日志: {len(self.replacement_log)} 次替换操作")
+        logging.info(f"SHORTCODE匹配统计: 成功={shortcode_stats['found']}, 未知={shortcode_stats['unknown']}")
+
+        # 统计按规则替换和模糊替换的数量
+        position_based = sum(1 for log in self.replacement_log if log['position'] != 'fuzzy')
+        fuzzy_based = sum(1 for log in self.replacement_log if log['position'] == 'fuzzy')
+        if position_based > 0 or fuzzy_based > 0:
+            logging.info(f"替换方式统计: 位置规则={position_based}, 模糊替换={fuzzy_based}")
 
         return result_df
 

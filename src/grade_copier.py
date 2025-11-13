@@ -45,17 +45,27 @@ class GradeCopier:
         """
         logging.info(f"加载表: {sheet_name}")
 
-        # 读取Excel
-        skiprows = [header_row + 1] if skip_start_row else None
-        df = pd.read_excel(
-            file_path,
-            sheet_name=sheet_name,
-            header=header_row,
-            skiprows=skiprows
-        )
+        try:
+            # 读取Excel
+            skiprows = [header_row + 1] if skip_start_row else None
+            df = pd.read_excel(
+                file_path,
+                sheet_name=sheet_name,
+                header=header_row,
+                skiprows=skiprows
+            )
+        except FileNotFoundError:
+            logging.error(f"文件不存在: {file_path}")
+            raise
+        except ValueError as e:
+            logging.error(f"工作表 '{sheet_name}' 不存在: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"读取Excel文件失败: {e}")
+            raise
 
         # 删除导航列
-        if str(df.columns[0]).startswith('!'):
+        if len(df.columns) > 0 and str(df.columns[0]).startswith('!'):
             df = df.iloc[:, 1:]
 
         logging.info(f"  加载了 {len(df)} 行数据")
@@ -224,24 +234,35 @@ class GradeCopier:
             matched_rows = df[conditions]
 
             if len(matched_rows) == 0:
+                logging.debug(f"    未找到匹配记录: pipe_size={pipe_size}, shortcode={shortcode}")
                 continue
 
             # 修改壁厚
+            row_modified_count = 0
             for idx in matched_rows.index:
+                first_schedule = df.at[idx, 'FIRSTSIZESCHEDULE']
+                second_schedule = df.at[idx, 'SECONDSIZESCHEDULE']
+
                 # 修改第一尺寸壁厚
-                if pd.notna(df.at[idx, 'FIRSTSIZESCHEDULE']):
-                    if df.at[idx, 'FIRSTSIZESCHEDULE'] == old_schedule:
+                if pd.notna(first_schedule):
+                    if first_schedule == old_schedule:
                         df.at[idx, 'FIRSTSIZESCHEDULE'] = new_schedule
                         modified_count += 1
+                        row_modified_count += 1
+                    else:
+                        logging.debug(f"      行{idx}: FIRSTSIZESCHEDULE={first_schedule} (期望{old_schedule}), 跳过")
 
                 # 修改第二尺寸壁厚
-                if pd.notna(df.at[idx, 'SECONDSIZESCHEDULE']):
-                    if df.at[idx, 'SECONDSIZESCHEDULE'] == old_schedule:
+                if pd.notna(second_schedule):
+                    if second_schedule == old_schedule:
                         df.at[idx, 'SECONDSIZESCHEDULE'] = new_schedule
                         modified_count += 1
+                        row_modified_count += 1
+                    else:
+                        logging.debug(f"      行{idx}: SECONDSIZESCHEDULE={second_schedule} (期望{old_schedule}), 跳过")
 
             shortcode_info = f" (SHORTCODE={shortcode})" if shortcode else ""
-            logging.info(f"    {pipe_size}: {old_schedule} → {new_schedule}{shortcode_info}, 影响 {len(matched_rows)} 条记录")
+            logging.info(f"    {pipe_size}: {old_schedule} → {new_schedule}{shortcode_info}, 匹配{len(matched_rows)}条, 修改{row_modified_count}处")
 
         logging.info(f"  ✓ 壁厚修改完成，共修改 {modified_count} 处")
 

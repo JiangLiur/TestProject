@@ -49,16 +49,26 @@ class PCMCDAnalyzerV2(PCMCDAnalyzer):
         """加载 PipingCommodityFilter 表"""
         logging.info(f"加载 PipingCommodityFilter 表...")
 
-        # 读取Excel，表头在第4行（索引3）
-        df = pd.read_excel(
-            self.spec_rule_excel_path,
-            sheet_name=self.filter_sheet_name,
-            header=3,
-            skiprows=[4]  # 跳过"Start"行
-        )
+        try:
+            # 读取Excel，表头在第4行（索引3）
+            df = pd.read_excel(
+                self.spec_rule_excel_path,
+                sheet_name=self.filter_sheet_name,
+                header=3,
+                skiprows=[4]  # 跳过"Start"行
+            )
+        except FileNotFoundError:
+            logging.error(f"文件不存在: {self.spec_rule_excel_path}")
+            raise
+        except ValueError as e:
+            logging.error(f"工作表 '{self.filter_sheet_name}' 不存在: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"读取Excel文件失败: {e}")
+            raise
 
         # 删除导航列
-        if str(df.columns[0]).startswith('!'):
+        if len(df.columns) > 0 and str(df.columns[0]).startswith('!'):
             df = df.iloc[:, 1:]
 
         logging.info(f"成功加载 {len(df)} 行数据")

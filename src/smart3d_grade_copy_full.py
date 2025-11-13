@@ -131,9 +131,10 @@ class Smart3DGradeCopyFull:
             logging.error("请先运行步骤3: 加载PCMCD数据")
             return
 
-        # 创建替换器
+        # 创建替换器，传入commodity_mapping以支持真实SHORTCODE匹配
         format_rules_file = self.config.get('format_rules_file', 'format_rules.json')
-        self.replacer = IntelligentReplacer(format_rules_file)
+        commodity_mapping = self.analyzer.commodity_code_to_shortcode if self.analyzer else {}
+        self.replacer = IntelligentReplacer(format_rules_file, commodity_mapping)
 
         # 获取映射规则
         material_mapping = self.config.get('material_replacements', {})
