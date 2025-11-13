@@ -1,0 +1,139 @@
+{
+  "_comment": "Smart3D等级库复制程序配置文件（基于位置智能替换版）",
+  "_version": "3.0",
+  "_last_updated": "2025-11-13",
+  
+  "source_grade": "C1L01",
+  "target_grade": "C1L02",
+  
+  "description": "从C1L01复制到C1L02，修改部分管径壁厚，并基于PCMCD格式分析进行智能材料和尺寸标准替换",
+  
+  "schedule_mappings": [
+    {
+      "pipe_size": "DN50",
+      "old_schedule": "SCH40",
+      "new_schedule": "SCH80",
+      "components": [
+        {
+          "name": "弯头",
+          "shortcode": "Elbow"
+        },
+        {
+          "name": "三通",
+          "shortcode": "Tee"
+        },
+        {
+          "name": "异径管",
+          "shortcode": "Reducer"
+        },
+        {
+          "name": "管帽",
+          "shortcode": "Cap"
+        }
+      ]
+    },
+    {
+      "pipe_size": "DN80",
+      "old_schedule": "SCH40",
+      "new_schedule": "SCH80",
+      "components": [
+        {
+          "name": "弯头",
+          "shortcode": "Elbow"
+        },
+        {
+          "name": "三通",
+          "shortcode": "Tee"
+        }
+      ]
+    }
+  ],
+  
+  "material_replacements": {
+    "ASTM A105": "ASTM A350 LF2",
+    "ASTM A234 WPB": "ASTM A420 WPL6",
+    "ASTM A216 WCB": "ASTM A352 LCB",
+    "ASTM A106 Gr.B": "ASTM A333 Gr.6"
+  },
+  
+  "size_standard_replacements": {
+    "SCH40": "SCH80",
+    "SCH STD": "SCH 80",
+    "Class 150": "Class 300"
+  },
+  
+  "pcmcd_analysis": {
+    "enabled": true,
+    "analyze_rows": 622,
+    "short_description_field": "SHORTMATERIALDESCRIPTION",
+    "long_description_field": "LONGMATERIALDESCRIPTION",
+    "export_format_rules": true,
+    "format_rules_file": "format_rules.json",
+    "generate_report": true,
+    "report_file": "format_analysis_report.txt"
+  },
+  
+  "replacement_strategy": {
+    "method": "position_based",
+    "description": "基于PCMCD格式分析，按位置进行精确替换",
+    "fallback": "fuzzy_match",
+    "fallback_description": "当无法确定位置时，使用正则表达式模糊匹配",
+    "log_all_replacements": true
+  },
+  
+  "processing_options": {
+    "validate_before_modify": true,
+    "create_backup": true,
+    "generate_report": true,
+    "log_level": "INFO",
+    "max_threads": 4
+  },
+  
+  "validation_rules": {
+    "check_shortcode_exists": true,
+    "check_material_standards": true,
+    "check_schedule_values": true,
+    "verify_record_counts": true,
+    "verify_old_material_removed": true,
+    "verify_new_material_added": true,
+    "position_accuracy_threshold": 0.9
+  },
+  
+  "output_settings": {
+    "output_directory": "./output",
+    "backup_directory": "./backup",
+    "log_directory": "./logs",
+    "report_format": "excel",
+    "include_format_rules": true,
+    "include_verification_report": true
+  },
+  
+  "file_paths": {
+    "input_excel": "PipingSpecRuleData.xlsx",
+    "pcmcd_sheet": "PCMCD",
+    "rule_data_sheet": "PipingSpecRuleData",
+    "part_sheet": "PipingSpecPart"
+  },
+  
+  "_usage_notes": [
+    "1. 填写source_grade和target_grade",
+    "2. 在schedule_mappings中列出所有需要修改壁厚的管径",
+    "3. 每个管径必须指定old_schedule和new_schedule",
+    "4. components列表中的shortcode必须准确",
+    "5. material_replacements列出所有需要替换的材料对",
+    "6. size_standard_replacements列出所有需要替换的尺寸标准",
+    "7. 程序会自动分析PCMCD表前622行",
+    "8. 生成format_rules.json格式规则文件",
+    "9. 按照格式规则进行位置精确替换",
+    "10. 验证时检查旧材料是否完全清除"
+  ],
+  
+  "_important_changes": [
+    "版本3.0重大更新：",
+    "1. 材料替换从简单字符串替换升级为基于位置的智能替换",
+    "2. 新增PCMCD格式分析功能",
+    "3. 新增format_rules.json生成",
+    "4. 新增尺寸标准智能替换",
+    "5. 大幅降低误替换风险"
+  ]
+}
