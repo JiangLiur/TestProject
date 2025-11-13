@@ -1,0 +1,50 @@
+{
+  "source_grade": "1C0031",
+  "target_grade": "1C0032",
+
+  "pcmcd_file": "files/CatalogDataExtractor_PCMCD.xlsx",
+  "spec_rule_file": "files/CatalogDataExtractor_PipingSpecRuleData.xlsx",
+  "format_rules_file": "format_rules.json",
+  "output_dir": "output_full",
+
+  "pcmcd_analysis": {
+    "analyze_rows": 622,
+    "export_format_rules": true
+  },
+
+  "schedule_mappings": [
+    {
+      "pipe_size": 0.75,
+      "old_schedule": "MATCH",
+      "new_schedule": "SCH80",
+      "shortcode": "45 Degree Direction Change"
+    },
+    {
+      "pipe_size": 1.0,
+      "old_schedule": "MATCH",
+      "new_schedule": "SCH80",
+      "shortcode": "45 Degree Direction Change"
+    }
+  ],
+
+  "material_replacements": {
+    "ASTM A216 WCB": "ASTM A352 LCB",
+    "ASTM A105": "ASTM A350 LF2",
+    "ASTM A182 F304": "ASTM A182 F316",
+    "ASTM A234 WPB": "ASTM A420 WPL6",
+    "16MnD": "16MnDR"
+  },
+
+  "size_standard_replacements": {
+    "SCH40": "SCH80",
+    "SCH STD": "SCH 80",
+    "XS": "XXS",
+    "CL150": "CL300"
+  },
+
+  "comments": {
+    "说明1": "完整版功能包括：等级库复制、壁厚修改、SHORTCODE精确匹配、智能材料替换",
+    "说明2": "schedule_mappings支持指定shortcode进行精确匹配",
+    "说明3": "材料替换基于PCMCD格式分析，按位置进行精确替换"
+  }
+}

@@ -1,0 +1,36 @@
+================================================================================
+Smart3D等级库复制 - 完整操作报告
+================================================================================
+
+程序版本: 完整版 v1.0
+执行时间: 2025-11-13 10:22:40
+
+配置信息:
+  源等级: 1C0031
+  目标等级: 1C0032
+  PCMCD文件: files/CatalogDataExtractor_PCMCD.xlsx
+  规格规则文件: files/CatalogDataExtractor_PipingSpecRuleData.xlsx
+
+步骤1: 等级库表复制
+  PipingMaterialsClassData: 41 行
+  PipingCommodityFilter: 24296 行
+
+步骤1b: 壁厚修改
+  0.75: MATCH → SCH80
+  1.0: MATCH → SCH80
+
+步骤2: PCMCD格式分析
+  分析行数: 622
+  发现管件类型: 26 种
+
+步骤4: 智能材料和尺寸标准替换
+  总替换次数: 0
+  材料替换: 0
+  尺寸替换: 0
+
+输出文件:
+  等级库表: output_full/CatalogDataExtractor_PipingSpecRuleData.xlsx
+  PCMCD表: output_full/CatalogDataExtractor_PCMCD.xlsx
+  等级复制报告: output_full/grade_copy_report.txt
+  替换操作报告: output_full/replacement_report.txt
+  完整操作报告: output_full/full_operation_report.txt
